@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindset Change and LibreOffice Workshop Evaluation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="range"] {
+            width: 100%;
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+        }
+        select {
+            width: 100%;
+            padding: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mindset Change and LibreOffice Workshop Evaluation</h1>
+    <p>Thank you for attending! Please provide feedback to help us improve. This form is anonymous unless you choose to share your contact info.</p>
+
+    <form id="evaluationForm">
+        <!-- Section 1: General Workshop Feedback -->
+        <div class="section">
+            <h2>General Workshop Feedback</h2>
+            <label>1. Overall, how would you rate the workshop? (1 = Poor, 5 = Excellent)</label>
+            <input type="range" name="q1" min="1" max="5" value="3" oninput="this.nextElementSibling.value = this.value">
+            <output>3</output>
+
+            <label>2. How relevant was the workshop content to your role as a teacher? (1 = Not Relevant, 5 = Extremely Relevant)</label>
+            <input type="range" name="q2" min="1" max="5" value="3" oninput="this.nextElementSibling.value = this.value">
+            <output>3</output>
+
+            <label>3. How well was the workshop organized? (1 = Poorly Organized, 5 = Very Well Organized)</label>
+            <input type="range" name="q3" min="1" max="5" value="3" oninput="this.nextElementSibling.value = this.value">
+            <output>3</output>
+
+            <label>4. What did you like most about the workshop?</label>
+            <textarea name="q4"></textarea>
+
+            <label>5. What could be improved about the workshop?</label>
+            <textarea name="q5"></textarea>
+        </div>
+
+        <!-- Section 2: Mindset Change Component -->
+        <div class="section">
+            <h2>Mindset Change Component</h2>
+            <label>6. To what extent did the workshop help you adopt a growth mindset? (1 = Not at All, 5 = Significantly)</label>
+            <input type="range" name="q6" min="1" max="5" value="3" oninput="this.nextElementSibling.value = this.value">
+            <output>3</output>
+
+            <label>7. How confident do you feel in applying mindset change principles? (1 = Not Confident, 5 = Very Confident)</label>
+            <input type="range" name="q7" min="1" max="5" value="3" oninput="this.nextElementSibling.value = this.value">
+            <output>3</output>
+
+            <label>8. Share an example of how you might use mindset change strategies in your teaching.</label>
+            <textarea name="q8"></textarea>
+        </div>
+
+        <!-- Section 3: LibreOffice Skills -->
+        <div class="section">
+            <h2>LibreOffice Skills</h2>
+            <label>9. How effective was the LibreOffice training? (1 = Ineffective, 5 = Highly Effective)</label>
+            <input type="range" name="q9" min="1" max="5" value="3" oninput="this.nextElementSibling.value = this.value">
+            <output>3</output>
+
+            <label>10. How comfortable do you feel using LibreOffice tools? (1 = Not Comfortable, 5 = Very Comfortable)</label>
+            <input type="range" name="q10" min="1" max="5" value="3" oninput="this.nextElementSibling.value = this.value">
+            <output>3</output>
+
+            <label>11. Which LibreOffice skill do you find most useful for your teaching?</label>
+            <textarea name="q11"></textarea>
+
+            <label>12. Were there any LibreOffice topics you wished were covered better?</label>
+            <textarea name="q12"></textarea>
+        </div>
+
+        <!-- Section 4: Facilitator Feedback -->
+        <div class="section">
+            <h2>Facilitator Feedback</h2>
+            <label>13. How knowledgeable and engaging was the facilitator? (1 = Not Knowledgeable/Engaging, 5 = Very Knowledgeable/Engaging)</label>
+            <input type="range" name="q13" min="1" max="5" value="3" oninput="this.nextElementSibling.value = this.value">
+            <output>3</output>
+
+            <label>14. Any additional comments about the facilitator’s delivery?</label>
+            <textarea name="q14"></textarea>
+        </div>
+
+        <!-- Section 5: Overall Impact and Follow-Up -->
+        <div class="section">
+            <h2>Overall Impact and Follow-Up</h2>
+            <label>15. How likely are you to recommend this workshop? (1 = Not Likely, 5 = Very Likely)</label>
+            <input type="range" name="q15" min="1" max="5" value="3" oninput="this.nextElementSibling.value = this.value">
+            <output>3</output>
+
+            <label>16. Has this workshop inspired you to explore further training?</label>
+            <select name="q16">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Maybe">Maybe</option>
+            </select>
+
+            <label>17. (Optional) Provide your name and email for follow-up or resources.</label>
+            <textarea name="q17"></textarea>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('evaluationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // Replace with your Google Apps Script Web App URL after deployment
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbw7Q94rRshWG4YTllzcarV-J0xScCGqG2IAAeFNoEd5hvliqB-gehCRj4KJhLCR4uDEQw/exec';
+
+            // Send data to Google Sheets
+            fetch(scriptURL, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Thank you for your feedback!');
+                    this.reset();
+                    // Reset range sliders to default value (3)
+                    document.querySelectorAll('input[type="range"]').forEach(slider => {
+                        slider.value = 3;
+                        slider.nextElementSibling.value = 3;
+                    });
+                } else {
+                    alert('Error submitting form. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting form. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>
